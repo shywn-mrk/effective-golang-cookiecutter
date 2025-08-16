@@ -1,0 +1,49 @@
+# Golang .gitignore
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Output of build tools
+/build/
+/bin/
+
+# Dependency directories
+/vendor/
+
+# Go workspace file
+/go.work
+/go.work.sum
+
+# IDE/editor files
+.idea/
+.vscode/
+*.swp
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Coverage files
+*.coverprofile
+*.cov
+
+# Test cache
+*.testcache
+
+# Environment files
+.env
+
+# Docker
+*.envrc
+.docker/
+
+# Ignore local config
+config.yaml

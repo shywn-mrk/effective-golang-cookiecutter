@@ -1,0 +1,52 @@
+services:
+  golang:
+    build:
+      context: .
+      dockerfile: docker/golang/Dockerfile
+    container_name: "{{cookiecutter.project_slug}}_golang"
+    ports:
+      - "8000:8000"
+    environment:
+      {%- if cookiecutter.database == "mysql" %}
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: example
+      DB_NAME: "{{cookiecutter.project_slug}}"
+      {%- endif %}
+      {%- if cookiecutter.use_redis == "yes" %}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      {% endif %}
+    depends_on:
+      {%- if cookiecutter.database == "mysql" %}
+      - mysql
+      {%- endif %}
+      {%- if cookiecutter.use_redis == "yes" %}
+      - redis
+      {%- endif %}
+  {%- if cookiecutter.use_redis == "yes" %}
+  redis:
+    image: redis:7.2-alpine
+    container_name: "{{cookiecutter.project_slug}}_redis"
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+  {%- endif %}
+  {%- if cookiecutter.database == "mysql" %}
+  mysql:
+    image: mysql:8.0
+    container_name: "{{cookiecutter.project_slug}}_mysql"
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: "{{cookiecutter.project_slug}}"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: unless-stopped
+  {%- endif %}
+volumes:
+  {%- if cookiecutter.database == "mysql" %}
+  mysql_data: {}
+  {%- endif %}

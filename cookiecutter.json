@@ -1,0 +1,38 @@
+{
+    "project_slug": "my_golang_project",
+    "project_complete_name": "gitlab.mycompany.com/domain/my_golang_project",
+    "description": "A short description of the project.",
+    "author_name": "Your Name",
+    "open_source_license": [
+        "MIT",
+        "BSD",
+        "GPLv3",
+        "Apache Software License 2.0",
+        "Not open source"
+    ],
+    "timezone": "UTC",
+    "database": [
+        "mysql",
+        "postgresql"
+    ],
+    "use_redis": [
+        "yes",
+        "no"
+    ],
+    "use_docker": [
+        "yes",
+        "no"
+    ],
+    "use_git": [
+        "yes",
+        "no"
+    ],
+    "go_tidy": [
+        "yes",
+        "no"
+    ],
+    "build_compose": [
+        "yes",
+        "no"
+    ]
+}
