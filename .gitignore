@@ -216,5 +216,8 @@ tags
 
 .pytest_cache/
 
+# Prettier node_modules for cache
+node_modules/
+
 # Test output of the generated project
 golang/
