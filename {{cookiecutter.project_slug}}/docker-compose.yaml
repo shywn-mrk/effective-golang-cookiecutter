@@ -13,11 +13,14 @@ services:
       {%- if cookiecutter.database == "mysql" %}
       - mysql
       {%- endif %}
+      {%- if cookiecutter.database == "postgresql" %}
+      - postgresql
+      {%- endif %}
       {%- if cookiecutter.use_redis == "yes" %}
       - redis
       {%- endif %}
 
-  {%- if cookiecutter.use_redis == "yes" %}
+  {% if cookiecutter.use_redis == "yes" -%}
   redis:
     image: redis:7.2-alpine
     container_name: "{{cookiecutter.project_slug}}_redis"
@@ -26,7 +29,7 @@ services:
     restart: unless-stopped
   {%- endif %}
 
-  {%- if cookiecutter.database == "mysql" %}
+  {% if cookiecutter.database == "mysql" -%}
   mysql:
     image: mysql:8.0
     container_name: "{{cookiecutter.project_slug}}_mysql"
@@ -37,5 +40,20 @@ services:
       MYSQL_DATABASE: "{{cookiecutter.project_slug}}"
     volumes:
       - mysql_data:/var/lib/mysql
+    restart: unless-stopped
+  {%- endif %}
+
+  {% if cookiecutter.database == "postgresql" -%}
+  postgresql:
+    image: postgres:16
+    container_name: "{{cookiecutter.project_slug}}_postgresql"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: example
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: "{{cookiecutter.project_slug}}"
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
     restart: unless-stopped
   {%- endif %}
