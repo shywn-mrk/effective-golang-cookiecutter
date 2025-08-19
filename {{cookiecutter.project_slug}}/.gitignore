@@ -44,6 +44,3 @@ Thumbs.db
 # Docker
 *.envrc
 .docker/
-
-# Ignore local config
-config.yaml

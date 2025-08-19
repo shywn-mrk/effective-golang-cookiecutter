@@ -9,6 +9,9 @@ services:
     container_name: "{{cookiecutter.project_slug}}_golang"
     ports:
       - "8000:8000"
+      {%- if cookiecutter.use_grpc_server == "yes" %}
+      - "50051:50051"
+      {%- endif %}
     depends_on:
       {%- if cookiecutter.database == "mysql" %}
       - mysql

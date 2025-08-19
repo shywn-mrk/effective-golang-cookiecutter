@@ -12,9 +12,11 @@
   ],
   "timezone": "UTC",
   "database": ["mysql", "postgresql"],
+  "use_grpc_server": ["yes", "no"],
   "use_redis": ["yes", "no"],
   "use_docker": ["yes", "no"],
-  "use_git": ["yes", "no"],
   "go_tidy": ["yes", "no"],
-  "build_compose": ["yes", "no"]
+  "build_compose": ["yes", "no"],
+  "use_git": ["yes", "no"],
+  "install_pre_commit": ["yes", "no"]
 }
