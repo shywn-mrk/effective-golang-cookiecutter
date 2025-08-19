@@ -1,8 +1,5 @@
-def run():
-    print("Running pre-generation hook...")
-
-
 project_slug = "{{ cookiecutter.project_slug }}"
+
 
 def run():
     print("Running pre-generation hook...")

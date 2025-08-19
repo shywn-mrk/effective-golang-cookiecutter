@@ -1,6 +1,7 @@
 # Configuration
 
 Configuration files are located in the `config/` directory:
+
 - `config.go`: Go configuration logic
 - `config.yaml`: YAML configuration for environment variables and settings
 

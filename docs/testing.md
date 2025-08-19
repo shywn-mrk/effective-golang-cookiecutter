@@ -1,6 +1,7 @@
 # Testing
 
 The template includes a `tests/` directory with sample tests for hooks:
+
 - `test_pre_gen_project_hook.py`
 - `test_post_gen_project_hook.py`
 

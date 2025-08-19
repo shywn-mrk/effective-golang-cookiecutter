@@ -1,11 +1,8 @@
-
 import shutil
 import subprocess
 from pathlib import Path
 
-cookiecutter = {
-    "use_git": "{{cookiecutter.use_git}}"
-}
+cookiecutter = {"use_git": "{{cookiecutter.use_git}}"}
 
 
 def remove_mysql_client():
